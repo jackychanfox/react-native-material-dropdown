@@ -190,7 +190,7 @@ export default class Dropdown extends PureComponent {
 
   componentWillReceiveProps({ value }) {
     if (value !== this.props.value) {
-      this.setState({ value });
+      this.textInput.setValue(value)
     }
   }
 
@@ -505,6 +505,7 @@ export default class Dropdown extends PureComponent {
 
     return (
       <TextField
+        ref={e=>this.textInput=e}
         label=''
         labelHeight={dropdownOffset.top - Platform.select({ ios: 1, android: 2 })}
 
